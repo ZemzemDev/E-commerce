@@ -1,0 +1,35 @@
+Earbuds (10):
+  Sony WH-1000XM5
+  Bose QuietComfort Ultra
+  Galaxy Buds 4 Pro
+  	ARC 4 Series
+  Aura Nebula
+  AirPods Pro 3
+  AirPods Max 2
+  Ultra Open Earbuds
+  Ear (Open)
+  OpenRun Pro 2
+
+Electronics (1):
+  Samsung Odyssey Neo G9
+
+Gadgets (3):
+  Canon EOS R5
+  DJI Mavic 3 Pro
+  Nintendo Switch OLED
+
+Laptops (3):
+  MacBook Pro M3 14"
+  ASUS ROG Zephyrus G14
+  Dell XPS 15
+
+Phones (3):
+  iPhone 15 Pro Max
+  Samsung Galaxy S24 Ultra
+  Google Pixel 8 Pro
+
+Tablets (1):
+  iPad Pro 12.9" M2
+
+Watches (1):
+  Apple Watch Ultra 2

@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #ffd700;
+    /* Soft Gold */
+    --secondary-color: #1a1a1a;
+    /* Deep Charcoal */
+    --text-color: #2b2929;
+    /* Clean Slate */
+    --bg-color: white;
+    /* Dark Mode Background */
+    --surface-color: #1e1e1e;
+    --accent-color: #ff4500;
+    --font-main: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--transition);
+}
+
+.premium-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.premium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.1);
+}

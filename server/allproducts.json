@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "69c7ffdcceb1b9b72699e9cd",
+    "name": "OpenRun Pro 2",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7ff63ceb1b9b72699e9ca",
+    "name": "Ear (Open)",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7f5ccceb1b9b72699e9c7",
+    "name": "Ultra Open Earbuds",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7f2e6ceb1b9b72699e9c4",
+    "name": "AirPods Max 2",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7f21cceb1b9b72699e9c1",
+    "name": "AirPods Pro 3",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7effaceb1b9b72699e9bd",
+    "name": "Aura Nebula",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7ef9fceb1b9b72699e9ba",
+    "name": "\tARC 4 Series",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7ef59ceb1b9b72699e9b7",
+    "name": "Galaxy Buds 4 Pro",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec6",
+    "name": "Bose QuietComfort Ultra",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec8",
+    "name": "Google Pixel 8 Pro",
+    "category": "Phones"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec7",
+    "name": "Nintendo Switch OLED",
+    "category": "Gadgets"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec5",
+    "name": "Samsung Odyssey Neo G9",
+    "category": "Electronics"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec4",
+    "name": "DJI Mavic 3 Pro",
+    "category": "Gadgets"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec3",
+    "name": "Canon EOS R5",
+    "category": "Gadgets"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec2",
+    "name": "Dell XPS 15",
+    "category": "Laptops"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec1",
+    "name": "Samsung Galaxy S24 Ultra",
+    "category": "Phones"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ec0",
+    "name": "ASUS ROG Zephyrus G14",
+    "category": "Laptops"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ebf",
+    "name": "iPad Pro 12.9\" M2",
+    "category": "Tablets"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ebe",
+    "name": "Apple Watch Ultra 2",
+    "category": "Watches"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ebd",
+    "name": "Sony WH-1000XM5",
+    "category": "Earbuds"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ebc",
+    "name": "MacBook Pro M3 14\"",
+    "category": "Laptops"
+  },
+  {
+    "_id": "69c7eed58fcaa6f18e202ebb",
+    "name": "iPhone 15 Pro Max",
+    "category": "Phones"
+  }
+]

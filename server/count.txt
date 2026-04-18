@@ -1,0 +1,10 @@
+Total products: 35
+
+By category:
+Earbuds: 22
+Laptops: 4
+Phones: 3
+Tablets: 2
+Cameras: 2
+Watches: 1
+Headphones: 1

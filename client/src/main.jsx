@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
+import { SettingsProvider } from './context/SettingsContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <AuthProvider>
-            <CartProvider>
-                <App />
-            </CartProvider>
+            <SettingsProvider>
+                <CartProvider>
+                    <App />
+                </CartProvider>
+            </SettingsProvider>
         </AuthProvider>
     </React.StrictMode>
 );

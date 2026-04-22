@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ArrowLeft, ShoppingCart, CheckCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/ProductPage.css';
 
 const ProductPage = () => {
@@ -14,6 +15,7 @@ const ProductPage = () => {
     const [loading, setLoading] = useState(true);
     const { addToCart } = useCart();
     const { user } = useAuth();
+    const { getCurrencySymbol } = useSettings();
 
     useEffect(() => {
         const fetchProductAndRelated = async () => {
@@ -52,7 +54,7 @@ const ProductPage = () => {
                     <span className="brand-tag">{product.brand}</span>
                     <h1>{product.name}</h1>
                     <div className="price-container">
-                        <p className="price">${product.price.toFixed(2)}</p>
+                        <p className="price">{getCurrencySymbol()}{product.price.toFixed(2)}</p>
                         <span className={product.countInStock > 0 ? 'status-in-stock' : 'status-out-of-stock'}>
                             {product.countInStock > 0 ? '● In Stock' : '● Out of Stock'}
                         </span>
@@ -117,7 +119,7 @@ const ProductPage = () => {
                                     <img src={p.image} alt={p.name} className="product-image" />
                                     <h3>{p.name}</h3>
                                 </Link>
-                                <p className="price">${p.price.toFixed(2)}</p>
+                                <p className="price">{getCurrencySymbol()}{p.price.toFixed(2)}</p>
                                 <button
                                     className="add-to-cart"
                                     onClick={() => {

@@ -3,6 +3,7 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import MockPaymentModal from '../components/MockPaymentModal';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/CartPage.css';
 
 const OrderPage = () => {
@@ -10,6 +11,7 @@ const OrderPage = () => {
     const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
     const { user } = useAuth();
+    const { getCurrencySymbol } = useSettings();
     const location = useLocation();
     const [paying, setPaying] = useState(false);
     const [isFinalizing, setIsFinalizing] = useState(false);
@@ -135,7 +137,7 @@ const OrderPage = () => {
                                     <img src={item.image} alt={item.name} className="order-item-img" />
                                     <div className="order-item-info">
                                         <Link to={`/product/${item.product || item.ProductId}`}>{item.name}</Link>
-                                        <p>{item.qty} x ${item.price} = <strong>${(Number(item.qty || 0) * Number(item.price || 0)).toFixed(2)}</strong></p>
+                                        <p>{item.qty} x {getCurrencySymbol()}{item.price} = <strong>{getCurrencySymbol()}{(Number(item.qty || 0) * Number(item.price || 0)).toFixed(2)}</strong></p>
                                     </div>
                                 </li>
                             ))}
@@ -147,7 +149,7 @@ const OrderPage = () => {
                         <h3>Order Summary</h3>
                         <div className="summary-row">
                             <span>Items</span>
-                            <span>${Number(order.totalPrice || 0).toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{Number(order.totalPrice || 0).toFixed(2)}</span>
                         </div>
                         <div className="summary-row">
                             <span>Shipping</span>
@@ -155,7 +157,7 @@ const OrderPage = () => {
                         </div>
                         <div className="summary-row total">
                             <span>Total</span>
-                            <span>${Number(order.totalPrice || 0).toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{Number(order.totalPrice || 0).toFixed(2)}</span>
                         </div>
                         {isFinalizing && (
                             <div className="finalizing-badge" style={{ 

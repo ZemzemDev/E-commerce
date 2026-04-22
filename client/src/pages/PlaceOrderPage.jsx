@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/CartPage.css';
 
 const PlaceOrderPage = () => {
     const { cart, cartTotal, clearCart } = useCart();
     const { user } = useAuth();
+    const { getCurrencySymbol } = useSettings();
     const navigate = useNavigate();
     
     const [loading, setLoading] = useState(false);
@@ -113,7 +115,7 @@ const PlaceOrderPage = () => {
                                         <img src={item.image} alt={item.name} className="order-item-img" />
                                         <div className="order-item-info">
                                             <Link to={`/product/${item.product || item._id}`}>{item.name}</Link>
-                                            <p>{item.qty} x ${item.price} = <strong>${(Number(item.qty || 0) * Number(item.price || 0)).toFixed(2)}</strong></p>
+                                            <p>{item.qty} x {getCurrencySymbol()}{item.price} = <strong>{getCurrencySymbol()}{(Number(item.qty || 0) * Number(item.price || 0)).toFixed(2)}</strong></p>
                                         </div>
                                     </li>
                                 ))}
@@ -126,7 +128,7 @@ const PlaceOrderPage = () => {
                         <h3>Order Summary</h3>
                         <div className="summary-row">
                             <span>Items</span>
-                            <span>${Number(cartTotal || 0).toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{Number(cartTotal || 0).toFixed(2)}</span>
                         </div>
                         <div className="summary-row">
                             <span>Shipping</span>
@@ -134,7 +136,7 @@ const PlaceOrderPage = () => {
                         </div>
                         <div className="summary-row total">
                             <span>Total</span>
-                            <span>${Number(cartTotal || 0).toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{Number(cartTotal || 0).toFixed(2)}</span>
                         </div>
                         <button
                             className="place-order-btn"

@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { CATEGORIES } from '../constants/productConstants';
 import { API_URL } from '../utils/api';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
     const [loading, setLoading] = useState(true);
     const { addToCart } = useCart();
     const { user } = useAuth();
+    const { getCurrencySymbol } = useSettings();
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -78,14 +80,21 @@ const HomePage = () => {
                     <div className="container hero-content">
                         <h1>Premium <span>Electronics</span> Store</h1>
                         <p>Discover the latest in high-end phones, laptops, smart watch...</p>
-                        <button className="cta-btn">Explore Tech</button>
+                        <button 
+                            className="cta-btn" 
+                            onClick={() => {
+                                document.getElementById('featured-products')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                        >
+                            Explore Tech
+                        </button>
                     </div>
                 </section>
             )}
 
 
 
-            <section className="featured container">
+            <section id="featured-products" className="featured container">
                 <h2 className="section-title">
                     {keyword ? `Search results for "${keyword}"` : category ? `${category} Collection` : 'Featured Products'}
                 </h2>
@@ -108,7 +117,7 @@ const HomePage = () => {
                                     <span className="product-brand">{product.brand}</span>
                                     <h3>{product.name}</h3>
                                 </Link>
-                                <p className="price">${product.price.toFixed(2)}</p>
+                                <p className="price">{getCurrencySymbol()}{product.price.toFixed(2)}</p>
                                 <button
                                     className="add-to-cart"
                                     onClick={() => {

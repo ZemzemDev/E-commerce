@@ -2,10 +2,12 @@ import React from 'react';
 import { useCart } from '../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, ShoppingBag } from 'lucide-react';
+import { useSettings } from '../context/SettingsContext';
 import '../styles/CartPage.css';
 
 const CartPage = () => {
     const { cart, removeFromCart, cartTotal, clearCart } = useCart();
+    const { getCurrencySymbol } = useSettings();
     const navigate = useNavigate();
 
     return (
@@ -24,7 +26,7 @@ const CartPage = () => {
                                 <img src={item.image} alt={item.name} />
                                 <div className="item-details">
                                     <h3>{item.name}</h3>
-                                    <p className="item-price">${item.price.toFixed(2)} x {item.qty}</p>
+                                    <p className="item-price">{getCurrencySymbol()}{item.price.toFixed(2)} x {item.qty}</p>
                                 </div>
                                 <button onClick={() => removeFromCart(item._id)} className="remove-btn">
                                     <Trash2 size={20} />
@@ -36,7 +38,7 @@ const CartPage = () => {
                         <h2>Order Summary</h2>
                         <div className="summary-row">
                             <span>Subtotal</span>
-                            <span>${cartTotal.toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{cartTotal.toFixed(2)}</span>
                         </div>
                         <div className="summary-row">
                             <span>Shipping</span>
@@ -45,7 +47,7 @@ const CartPage = () => {
                         <hr />
                         <div className="summary-row total">
                             <span>Total</span>
-                            <span>${cartTotal.toFixed(2)}</span>
+                            <span>{getCurrencySymbol()}{cartTotal.toFixed(2)}</span>
                         </div>
                         <button className="checkout-btn" onClick={() => navigate('/login?redirect=shipping')}>
                             Proceed to Checkout

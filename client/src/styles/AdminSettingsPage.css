@@ -140,7 +140,7 @@
 
 .add-hero-btn:hover {
     border-color: var(--primary-color);
-    color: var(--primary-color);
+    color: black;
     background: rgba(255, 215, 0, 0.05);
 }
 
@@ -176,7 +176,7 @@
 }
 
 .settings-info h4 span {
-    color: black;
+    color: var(--primary-color);
 }
 
 .settings-info ul {

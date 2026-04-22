@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import { useSettings } from '../context/SettingsContext';
 import { User, Package, Settings, ChevronRight, Loader, ShieldCheck, BadgeCheck, LogOut, Camera } from 'lucide-react';
 import { API_URL } from '../utils/api';
 import '../styles/ProfilePage.css';
@@ -19,6 +20,9 @@ const ProfilePage = () => {
     const [loadingOrders, setLoadingOrders] = useState(true);
     const [activeTab, setActiveTab] = useState('profile');
     const [settingsTab, setSettingsTab] = useState('edit-profile');
+    
+    // Modern settings state from global context
+    const { language, currency, updateLanguage, updateCurrency } = useSettings();
 
     useEffect(() => {
         if (!user) {
@@ -127,7 +131,7 @@ const ProfilePage = () => {
                         <div className="empty-state">
                             <div className="icon-badge">🏠</div>
                             <p>No addresses saved yet. Your primary shipping address will appear here.</p>
-                            <button className="add-btn">+ Add New Address</button>
+                            <button className="add-btn" onClick={() => setMessage('Add Address functionality is coming soon!')}>+ Add New Address</button>
                         </div>
                     </div>
                 );
@@ -137,20 +141,37 @@ const ProfilePage = () => {
                         <h2>Language & <span>Region</span></h2>
                         <div className="form-group">
                             <label>Default Store Language</label>
-                            <select className="premium-select">
-                                <option>English (US)</option>
-                                <option>Spanish</option>
-                                <option>French</option>
+                            <select 
+                                className="premium-select" 
+                                value={language}
+                                onChange={(e) => {
+                                    updateLanguage(e.target.value);
+                                    setMessage(`Success: Language updated to ${e.target.value}`);
+                                }}
+                            >
+                                <option value="English (US)">English (US)</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
                             </select>
                         </div>
                         <div className="form-group">
                             <label>Currency</label>
-                            <select className="premium-select">
-                                <option>USD ($)</option>
-                                <option>EUR (€)</option>
-                                <option>GBP (£)</option>
+                            <select 
+                                className="premium-select"
+                                value={currency}
+                                onChange={(e) => {
+                                    updateCurrency(e.target.value);
+                                    setMessage(`Success: Currency updated to ${e.target.value}`);
+                                }}
+                            >
+                                <option value="USD ($)">USD ($)</option>
+                                <option value="EUR (€)">EUR (€)</option>
+                                <option value="GBP (£)">GBP (£)</option>
                             </select>
                         </div>
+                        <p style={{ fontSize: '0.8rem', color: '#666', marginTop: '1rem' }}>
+                            Settings are saved automatically to your browser.
+                        </p>
                     </div>
                 );
             case 'notifications':
@@ -199,7 +220,7 @@ const ProfilePage = () => {
                             {user?.name?.charAt(0).toUpperCase()}
                         </div>
                         {user?.isAdmin && <div className="admin-status-ring"><ShieldCheck size={14} /></div>}
-                        <button className="avatar-edit-btn"><Camera size={14} /></button>
+                        <button className="avatar-edit-btn" onClick={() => setMessage('Avatar upload functionality is coming soon!')}><Camera size={14} /></button>
                     </div>
                     <div className="user-meta">
                         <h3>{user?.name} {user?.isAdmin && <BadgeCheck size={18} className="verified-icon" title="Verified Store Admin" />}</h3>

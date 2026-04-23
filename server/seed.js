@@ -152,7 +152,7 @@ const seedData = async () => {
         await sequelize.authenticate();
         await sequelize.sync({ force: true }); // Reset DB for seeding
         await Product.bulkCreate(products);
-        console.log('✅ Data Seeded Successfully to MySQL');
+        console.log('✅ Data Seeded Successfully to Database');
         process.exit();
     } catch (error) {
         console.error('❌ Seeding Error:', error);

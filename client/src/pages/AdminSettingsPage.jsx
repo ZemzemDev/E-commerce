@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { ArrowLeft, Save, Plus, Trash2, Layout, Image as ImageIcon } from 'lucide-react';
+import { API_URL } from '../utils/api';
 import '../styles/AdminSettingsPage.css';
 
 const AdminSettingsPage = () => {
@@ -17,7 +18,7 @@ const AdminSettingsPage = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/settings/hero-backgrounds');
+                const { data } = await axios.get(`${API_URL}/settings/hero-backgrounds`);
                 setHeroImages(data);
             } catch (error) {
                 console.error('Error fetching settings:', error);
@@ -58,7 +59,7 @@ const AdminSettingsPage = () => {
             };
 
             await axios.put(
-                'http://localhost:5000/api/settings/hero-backgrounds',
+                `${API_URL}/settings/hero-backgrounds`,
                 { images: heroImages.filter(img => img.trim() !== '') },
                 config
             );

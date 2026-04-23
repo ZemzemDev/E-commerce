@@ -5,6 +5,7 @@ import { ArrowLeft, ShoppingCart, CheckCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useSettings } from '../context/SettingsContext';
+import { API_URL } from '../utils/api';
 import '../styles/ProductPage.css';
 
 const ProductPage = () => {
@@ -21,11 +22,11 @@ const ProductPage = () => {
         const fetchProductAndRelated = async () => {
             setLoading(true);
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+                const { data } = await axios.get(`${API_URL}/products/${id}`);
                 setProduct(data);
 
                 // Fetch related products (same category, excluding current)
-                const { data: related } = await axios.get(`http://localhost:5000/api/products?category=${data.category}`);
+                const { data: related } = await axios.get(`${API_URL}/products?category=${data.category}`);
                 setRelatedProducts(related.filter(p => p._id !== data._id).slice(0, 8));
             } catch (error) {
                 console.error('Error fetching product details:', error);

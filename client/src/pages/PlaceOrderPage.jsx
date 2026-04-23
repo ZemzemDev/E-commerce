@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import { API_URL } from '../utils/api';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/CartPage.css';
 
@@ -59,7 +60,7 @@ const PlaceOrderPage = () => {
                 },
             };
 
-            const { data } = await axios.post('http://localhost:5000/api/orders', {
+            const { data } = await axios.post(`${API_URL}/orders`, {
                 orderItems: cart,
                 shippingAddress,
                 paymentMethod,

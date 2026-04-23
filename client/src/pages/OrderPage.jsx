@@ -3,6 +3,7 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import MockPaymentModal from '../components/MockPaymentModal';
+import { API_URL } from '../utils/api';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/CartPage.css';
 
@@ -24,7 +25,7 @@ const OrderPage = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`, config);
+            const { data } = await axios.get(`${API_URL}/orders/${id}`, config);
             setOrder(data);
             setLoading(false);
         } catch (error) {
@@ -51,7 +52,7 @@ const OrderPage = () => {
                         const config = {
                             headers: { Authorization: `Bearer ${user.token}` },
                         };
-                        await axios.post(`http://localhost:5000/api/orders/${id}/verify-payment`, { session_id: sessionId }, config);
+                        await axios.post(`${API_URL}/orders/${id}/verify-payment`, { session_id: sessionId }, config);
                         fetchOrder(); // Refetch to get updated status
                     } catch (error) {
                         console.error('Payment verification failed', error);
@@ -71,7 +72,7 @@ const OrderPage = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.put(`http://localhost:5000/api/orders/${id}/pay`, paymentResult || {}, config);
+            const { data } = await axios.put(`${API_URL}/orders/${id}/pay`, paymentResult || {}, config);
             console.log('✅ Order updated to PAID:', data);
             fetchOrder();
         } catch (error) {
@@ -92,7 +93,7 @@ const OrderPage = () => {
                 },
             };
             if (order.paymentMethod === 'Stripe') {
-                const { data } = await axios.post(`http://localhost:5000/api/orders/${id}/create-checkout-session`, {}, config);
+                const { data } = await axios.post(`${API_URL}/orders/${id}/create-checkout-session`, {}, config);
                 if (data.url) {
                     window.location.href = data.url;
                 } else {

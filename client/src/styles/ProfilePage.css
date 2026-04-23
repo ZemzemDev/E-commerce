@@ -367,11 +367,11 @@
 
 /* UI Elements */
 .premium-select {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #fdfdfd;
+    border: 1px solid #eee;
     padding: 1rem;
     border-radius: 8px;
-    color: white;
+    color: #333;
     width: 100%;
     margin-bottom: 1rem;
 }

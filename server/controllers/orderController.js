@@ -158,11 +158,13 @@ exports.createStripeCheckoutSession = async (req, res) => {
             quantity: item.qty,
         }));
 
+        const origin = req.get('origin') || 'http://localhost:5173';
+        
         // Mock behavior if no valid secret key is provided (for dev demo purposes)
         if (process.env.STRIPE_SECRET_KEY === undefined || process.env.STRIPE_SECRET_KEY === 'sk_test_mock_placeholder_replace_me') {
             return res.json({ 
                 id: 'mock_session_123', 
-                url: `http://localhost:5173/order/${order.id}?success=true&session_id=mock_session_123` 
+                url: `${origin}/order/${order.id}?success=true&session_id=mock_session_123` 
             });
         }
 
@@ -170,8 +172,8 @@ exports.createStripeCheckoutSession = async (req, res) => {
             payment_method_types: ['card'],
             line_items,
             mode: 'payment',
-            success_url: `http://localhost:5173/order/${order.id}?success=true&session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `http://localhost:5173/order/${order.id}?canceled=true`,
+            success_url: `${origin}/order/${order.id}?success=true&session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${origin}/order/${order.id}?canceled=true`,
             client_reference_id: order.id.toString(),
             customer_email: req.user.email,
         });

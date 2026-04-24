@@ -106,7 +106,7 @@
     max-height: 400px;
     overflow-y: auto;
     z-index: 2000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .result-item {
@@ -150,8 +150,13 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .nav-links {
@@ -159,11 +164,11 @@
     gap: 2rem;
 }
 
-.nav-links a {
+.nav-links a, .user-info-trigger {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 450px;
+    font-weight: 500;
 }
 
 .nav-links a:hover {

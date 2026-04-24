@@ -46,21 +46,33 @@ const HomePage = () => {
         }
     }, [heroImages.length]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            setLoading(true);
-            try {
-                const url = keyword || category
-                    ? `${API_URL}/products?keyword=${keyword}&category=${category === 'All' ? '' : category}`
-                    : `${API_URL}/products`;
-                const { data } = await axios.get(url);
-                setProducts(data);
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            } finally {
-                setLoading(false);
+    const [serverStatus, setServerStatus] = useState('loading'); // 'loading' | 'waking' | 'loaded' | 'error'
+
+    const fetchProducts = async (retryCount = 0) => {
+        setLoading(true);
+        setServerStatus('loading');
+        try {
+            const url = keyword || category
+                ? `${API_URL}/products?keyword=${keyword}&category=${category === 'All' ? '' : category}`
+                : `${API_URL}/products`;
+            const { data } = await axios.get(url, { timeout: 60000 });
+            setProducts(data);
+            setServerStatus('loaded');
+        } catch (error) {
+            if (retryCount < 3) {
+                // Server might be waking up on Render free tier - retry automatically
+                setServerStatus('waking');
+                setTimeout(() => fetchProducts(retryCount + 1), 8000);
+            } else {
+                setServerStatus('error');
+                console.error('Error fetching products after retries:', error);
             }
-        };
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchProducts();
     }, [keyword, category]);
 
@@ -103,8 +115,25 @@ const HomePage = () => {
                         <p>⚠️ <strong>Offline Mode:</strong> Could not connect to the database. Showing premium fallback products.</p>
                     </div>
                 )}
-                {loading ? (
-                    <div className="loading">Loading premium product...</div>
+                {loading || serverStatus === 'waking' ? (
+                    <div className="loading" style={{ textAlign: 'center', padding: '3rem' }}>
+                        <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>⏳</div>
+                        {serverStatus === 'waking' ? (
+                            <>
+                                <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>Server is waking up...</p>
+                                <p style={{ color: '#888', marginTop: '0.5rem' }}>Our free server goes to sleep after inactivity. It will be ready in a few seconds. Please wait...</p>
+                            </>
+                        ) : (
+                            <p>Loading premium products...</p>
+                        )}
+                    </div>
+                ) : serverStatus === 'error' ? (
+                    <div style={{ textAlign: 'center', padding: '3rem' }}>
+                        <p style={{ color: '#f44336', fontWeight: '700' }}>❌ Could not connect to the server.</p>
+                        <button className="cta-btn" style={{ marginTop: '1rem' }} onClick={() => fetchProducts()}>
+                            Try Again
+                        </button>
+                    </div>
                 ) : (
                     <div className="product-grid">
                         {products.length > 0 ? products.map((product, index) => (

@@ -4,44 +4,11 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { Op } = require('sequelize');
 const sequelize = require('../config/db');
 
-const fallbackProducts = [
-    {
-        _id: 'mock1',
-        name: 'iPhone 15 Pro Max',
-        brand: 'Apple',
-        price: 1199,
-        image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=1000',
-        description: 'Titanium design, A17 Pro chip, Pro camera system.',
-        category: 'Phones'
-    },
-    {
-        _id: 'mock2',
-        name: 'MacBook Pro M3',
-        brand: 'Apple',
-        price: 1599,
-        image: 'https://images.unsplash.com/photo-1517336714467-d13a250367ce?auto=format&fit=crop&q=80&w=1000',
-        description: 'Liquid Retina XDR display, M3 Pro chip.',
-        category: 'Laptops'
-    },
-    {
-        _id: 'mock3',
-        name: 'Sony WH-1000XM5',
-        brand: 'Sony',
-        price: 399,
-        image: 'https://images.unsplash.com/photo-1546435770-a3e426ff472b?auto=format&fit=crop&q=80&w=1000',
-        description: 'Industry-leading noise cancellation.',
-        category: 'Earbuds'
-    }
-];
+
 
 // @desc    Get all products
 // @route   GET /api/products
 exports.getProducts = async (req, res) => {
-    // In Sequelize, we rely on the global connection authenticate() but 
-    // for this failover logic, we can try to use standard logic.
-    // However, Sequelize doesn't have a simple connection.readyState.
-    // For now, we'll try to use the DB, and catch the error.
-
     const where = {};
     if (req.query.keyword) {
         where.name = { [Op.like]: `%${req.query.keyword}%` };
@@ -61,9 +28,8 @@ exports.getProducts = async (req, res) => {
         });
         res.json(mappedProducts);
     } catch (error) {
-        // Fallback if DB fetch fails
         console.error('⚠️ DB Fetch Error:', error.message);
-        res.json(fallbackProducts);
+        res.status(500).json({ message: 'Error fetching products from database. It might be waking up.' });
     }
 };
 

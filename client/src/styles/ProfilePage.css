@@ -66,9 +66,9 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.938);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgb(169, 164, 164);
+    color: rgb(62, 59, 59);
     padding: 6px;
     border-radius: 50%;
     cursor: pointer;
@@ -120,8 +120,8 @@
 }
 
 .nav-item:hover {
-    background: rgba(251, 191, 36, 0.05);
-    color: #ffd700;
+    background: #ffd700;
+    color: black;
 }
 
 .nav-item.active {
@@ -201,7 +201,7 @@
 .overview-item p {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #e5e7eb;
+    color: #a7a8aa;
 }
 
 .overview-actions {
@@ -213,7 +213,7 @@
 }
 
 .accent-btn {
-    background: #ffd700;
+    background: #f7f7f5;
     color: #1a1a1a;
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -225,6 +225,8 @@
 .accent-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(251, 191, 36, 0.3);
+    background: #fbbf24;
+    color: white;
 }
 
 .admin-btn-accent {
@@ -233,14 +235,13 @@
     color: #101010;
     padding: 1rem 2rem;
     border-radius: 12px;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.3s ease;
 }
 
 .admin-btn-accent:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #fbbf24;
-    color: #fff;
+    background: #fbbf24;
+    color: white;
 }
 
 /* Order History Styling - Table Style */
@@ -482,7 +483,7 @@
     width: 50px;
     height: 26px;
     appearance: none;
-    background: #27272a;
+    background: #71717a;
     border-radius: 20px;
     position: relative;
     cursor: pointer;

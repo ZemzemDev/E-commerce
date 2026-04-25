@@ -20,7 +20,7 @@ const ProfilePage = () => {
     const [loadingOrders, setLoadingOrders] = useState(true);
     const [activeTab, setActiveTab] = useState('profile');
     const [settingsTab, setSettingsTab] = useState('edit-profile');
-    
+
     // Modern settings state from global context
     const { language, currency, updateLanguage, updateCurrency } = useSettings();
 
@@ -141,8 +141,8 @@ const ProfilePage = () => {
                         <h2>Language & <span>Region</span></h2>
                         <div className="form-group">
                             <label>Default Store Language</label>
-                            <select 
-                                className="premium-select" 
+                            <select
+                                className="premium-select"
                                 value={language}
                                 onChange={(e) => {
                                     updateLanguage(e.target.value);
@@ -156,7 +156,7 @@ const ProfilePage = () => {
                         </div>
                         <div className="form-group">
                             <label>Currency</label>
-                            <select 
+                            <select
                                 className="premium-select"
                                 value={currency}
                                 onChange={(e) => {
@@ -298,7 +298,7 @@ const ProfilePage = () => {
                                     <button className="admin-btn-accent" onClick={() => navigate('/admin/product')}>
                                         Manage Product Inventory
                                     </button>
-                                    <button className="admin-btn-accent" onClick={() => navigate('/admin/settings')} style={{ background: '#333' }}>
+                                    <button className="admin-btn-accent" onClick={() => navigate('/admin/settings')}>
                                         Customize Store Look
                                     </button>
                                 </div>

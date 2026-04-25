@@ -38,14 +38,14 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    color: #121212;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
 }
 
 .admin-status-ring {
@@ -77,7 +77,8 @@
 }
 
 .avatar-edit-btn:hover {
-    background: #6366f1;
+    background: #fbbf24;
+    color: #121212;
     transform: scale(1.1);
 }
 
@@ -91,7 +92,7 @@
 }
 
 .verified-icon {
-    color: #6366f1;
+    color: #fbbf24;
 }
 
 .user-meta p {
@@ -121,14 +122,14 @@
 }
 
 .nav-item:hover {
-    background: rgba(99, 102, 241, 0.08);
-    color: #818cf8;
+    background: rgba(251, 191, 36, 0.08);
+    color: #fbbf24;
 }
 
 .nav-item.active {
-    background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.2);
 }
 
 .sidebar-divider {
@@ -174,7 +175,7 @@
 }
 
 .profile-content h2 span {
-    color: #6366f1;
+    color: #fbbf24;
 }
 
 /* Overview Card */
@@ -214,18 +215,18 @@
 }
 
 .accent-btn {
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    color: white;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #121212;
     padding: 1rem 2rem;
     border-radius: 12px;
     font-weight: 700;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2);
     transition: all 0.3s ease;
 }
 
 .accent-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 15px 30px rgba(251, 191, 36, 0.3);
 }
 
 .admin-btn-accent {
@@ -239,8 +240,8 @@
 }
 
 .admin-btn-accent:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #6366f1;
+    background: rgba(251, 191, 36, 0.1);
+    border-color: #fbbf24;
     color: #fff;
 }
 
@@ -267,7 +268,7 @@
 
 .order-item-card:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(251, 191, 36, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -281,7 +282,7 @@
 
 .order-id span {
     font-family: 'Monaco', monospace;
-    color: #6366f1;
+    color: #fbbf24;
     font-weight: 700;
 }
 
@@ -333,9 +334,9 @@
 }
 
 .view-order-btn {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    color: #818cf8;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
     padding: 0.6rem 1.2rem;
     border-radius: 10px;
     font-size: 0.9rem;
@@ -347,8 +348,8 @@
 }
 
 .view-order-btn:hover {
-    background: #6366f1;
-    color: white;
+    background: #fbbf24;
+    color: #121212;
 }
 
 /* Settings Layout */
@@ -381,9 +382,9 @@
 }
 
 .settings-nav-item.active {
-    background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.2);
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.2);
 }
 
 .settings-main {
@@ -396,7 +397,7 @@
 }
 
 .settings-panel h2 span {
-    color: #6366f1;
+    color: #fbbf24;
 }
 
 /* Form Styling - Matching Auth/Admin Style */
@@ -414,7 +415,8 @@
     font-weight: 700;
 }
 
-.form-group input, .premium-select {
+.form-group input,
+.premium-select {
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -426,28 +428,29 @@
     transition: all 0.3s ease;
 }
 
-.form-group input:focus, .premium-select:focus {
-    border-color: #6366f1;
+.form-group input:focus,
+.premium-select:focus {
+    border-color: #fbbf24;
     background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1);
 }
 
 .update-btn {
     width: 100%;
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    color: white;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #121212;
     padding: 1.2rem;
     border-radius: 12px;
     font-weight: 700;
     font-size: 1.1rem;
     margin-top: 1rem;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
     transition: all 0.3s ease;
 }
 
 .update-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 30px rgba(251, 191, 36, 0.4);
 }
 
 /* Modern Toggles */
@@ -490,7 +493,7 @@
 }
 
 .toggle-item input[type="checkbox"]:checked {
-    background: #6366f1;
+    background: #fbbf24;
 }
 
 .toggle-item input[type="checkbox"]::before {
@@ -503,7 +506,7 @@
     top: 3px;
     left: 4px;
     transition: 0.4s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-item input[type="checkbox"]:checked::before {
@@ -515,7 +518,7 @@
     .profile-page {
         grid-template-columns: 1fr;
     }
-    
+
     .profile-sidebar {
         position: static;
         width: 100%;
@@ -527,8 +530,15 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .message-alert {

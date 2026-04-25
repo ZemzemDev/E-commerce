@@ -214,12 +214,12 @@
 }
 
 .accent-btn {
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    background: rgb(237, 243, 89);
     color: #1a1a1a;
     padding: 1rem 2rem;
     border-radius: 12px;
     font-weight: 700;
-    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2);
+    box-shadow: 0 10px 20px rgba(237, 243, 89, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -229,9 +229,9 @@
 }
 
 .admin-btn-accent {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e5e7eb;
+    background: rgb(237, 243, 89);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
     padding: 1rem 2rem;
     border-radius: 12px;
     font-weight: 600;
@@ -436,14 +436,14 @@
 
 .update-btn {
     width: 100%;
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    background: rgb(237, 243, 89);
     color: #1a1a1a;
     padding: 1.2rem;
     border-radius: 12px;
     font-weight: 700;
     font-size: 1.1rem;
     margin-top: 1rem;
-    box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+    box-shadow: 0 10px 20px rgba(237, 243, 89, 0.2);
     transition: all 0.3s ease;
 }
 

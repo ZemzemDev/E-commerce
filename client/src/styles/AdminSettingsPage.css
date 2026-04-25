@@ -23,7 +23,7 @@
     align-items: center;
     gap: 0.8rem;
     font-size: 1.5rem;
-    color: #333;
+    color: #1e1e1e;
     margin-bottom: 0.5rem;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .section-header p {
-    color: #888;
+    color: #252424;
     font-size: 0.95rem;
 }
 
@@ -72,7 +72,7 @@
 .input-icon {
     position: absolute;
     left: 1rem;
-    color: #999;
+    color: #4b4848;
 }
 
 .input-with-icon input {
@@ -129,7 +129,6 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.8rem 1.5rem;
-    border: 2px dashed #ddd;
     background: transparent;
     color: #666;
     border-radius: 8px;
@@ -139,9 +138,8 @@
 }
 
 .add-hero-btn:hover {
-    border-color: var(--primary-color);
     color: black;
-    background: rgba(255, 215, 0, 0.05);
+    background: var(--primary-color);
 }
 
 .save-settings-btn {
@@ -149,8 +147,8 @@
     align-items: center;
     gap: 0.8rem;
     padding: 0.8rem 2.5rem;
-    background: #1a1a1a;
-    color: white;
+    background: #fcf5f5;
+    color: rgb(63, 62, 62);
     border: none;
     border-radius: 8px;
     font-weight: 800;
@@ -161,7 +159,6 @@
 .save-settings-btn:hover {
     background: var(--primary-color);
     color: #1a1a1a;
-    transform: translateY(-2px);
 }
 
 /* Info Sidebar */

@@ -41,7 +41,7 @@
 }
 
 .admin-header h1 span {
-    color: #6366f1;
+    color: rgb(44, 42, 42);
     font-weight: 700;
 }
 
@@ -83,7 +83,7 @@
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: 18px;
     padding: 0.5rem 1rem;
     width: 100%;
     max-width: 400px;
@@ -91,7 +91,7 @@
 }
 
 .search-bar:focus-within {
-    border-color: #6366f1;
+    border-color: #4a4a4d;
 }
 
 .search-bar input {
@@ -170,7 +170,7 @@
 .premium-table input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    accent-color: #6366f1;
+    accent-color: #111112;
     cursor: pointer;
 }
 
@@ -230,7 +230,7 @@
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
-    color: var(--text-color);
+    color: rgb(47, 46, 46);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,9 +297,17 @@
     transition: width 0.5s ease;
 }
 
-.stock-bar-fill.in-stock { background: #4caf50; }
-.stock-bar-fill.low-stock { background: #ff9800; }
-.stock-bar-fill.out-stock { background: #f44336; }
+.stock-bar-fill.in-stock {
+    background: #4caf50;
+}
+
+.stock-bar-fill.low-stock {
+    background: #ff9800;
+}
+
+.stock-bar-fill.out-stock {
+    background: #f44336;
+}
 
 .price-cell {
     font-weight: 800;

@@ -33,57 +33,6 @@
     gap: 0.75rem;
 }
 
-.magic-image-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(99, 102, 241, 0.1);
-    color: #818cf8;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.magic-image-btn:hover:not(:disabled) {
-    background: rgba(99, 102, 241, 0.2);
-    border-color: #818cf8;
-}
-
-.magic-image-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.magic-image-btn.spinning svg {
-    animation: magic-spin 1s infinite linear;
-}
-
-@keyframes magic-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.back-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.2rem;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 8px;
-    color: #666;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.back-btn:hover {
-    background: #e0e0e0;
-    color: #333;
-}
 
 .admin-form-container {
     padding: 3rem;
@@ -158,88 +107,6 @@
     flex: 1;
 }
 
-.library-trigger,
-.auto-detect-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--primary-color), #ffd700);
-    border: none;
-    color: #1a1a1a;
-    padding: 0.5rem 1.2rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.library-trigger:hover,
-.auto-detect-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
-    filter: brightness(1.1);
-}
-
-.library-trigger:active,
-.auto-detect-btn:active:not(:disabled) {
-    transform: translateY(0);
-}
-
-.auto-detect-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: #e0e0e0;
-    color: #999;
-}
-
-.library-trigger {
-    background: transparent;
-    border: 1.5px solid var(--primary-color);
-    color: var(--primary-color);
-    box-shadow: none;
-}
-
-.library-trigger:hover {
-    background: var(--primary-color);
-    color: #1a1a1a;
-}
-
-.premium-library {
-    margin-top: 1rem;
-    padding: 1.5rem;
-    background: #fff;
-    border: 1px solid #eee;
-    animation: fadeIn 0.4s ease;
-}
-
-.premium-library h4 {
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-    color: #333;
-}
-
-.premium-library h4 span {
-    color: var(--primary-color);
-}
-
-.library-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.library-item {
-    position: relative;
-    height: 100px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
 
 /* Magical Image Palette Modal */
 .palette-modal-overlay {
@@ -306,9 +173,17 @@
 }
 
 @keyframes pulse-green {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
 }
 
 .palette-header h3 {
@@ -419,44 +294,6 @@
     border-color: #f44336;
 }
 
-.library-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.library-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.library-overlay span {
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.library-item:hover {
-    transform: scale(1.03);
-    border-color: var(--primary-color);
-}
-
-.library-item:hover .library-overlay {
-    opacity: 1;
-}
-
-.library-note {
-    font-size: 0.75rem;
-    color: #999;
-    font-style: italic;
-}
 
 .image-preview {
     margin-top: 1rem;
@@ -480,8 +317,13 @@
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .image-preview img {
@@ -564,8 +406,8 @@
 }
 
 .save-btn:hover:not(:disabled) {
-    background: #333;
-    color: white;
+    background: #f5f1f1;
+    color: rgb(16, 15, 15);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }

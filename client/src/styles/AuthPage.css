@@ -228,10 +228,6 @@
     border-radius: 50%;
 }
 
-.checkmark:hover {
-    background-color: #e8e52e;
-}
-
 .radio-container:hover input~.checkmark {
     background-color: #444;
 }

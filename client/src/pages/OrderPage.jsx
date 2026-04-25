@@ -179,10 +179,10 @@ const OrderPage = () => {
                                 {order.paymentMethod === 'Stripe' ? (
                                     <button
                                         className="auth-btn w-full mt-4"
-                                        onClick={payHandler}
+                                        onClick={() => setShowMockModal(true)}
                                         disabled={paying}
                                     >
-                                        {paying ? 'Processing Payment...' : 'Pay with Stripe'}
+                                        {paying ? 'Processing Payment...' : 'Pay with Stripe (Test)'}
                                     </button>
                                 ) : (
                                     <div className="mt-4">

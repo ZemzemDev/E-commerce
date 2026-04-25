@@ -70,7 +70,7 @@
     align-items: center;
     background: white;
     margin: 0 2rem;
-    height: 40px;
+    height: 30px;
     flex: 1;
     max-width: 600px;
     border: 1px solid #ddd;
@@ -164,7 +164,8 @@
     gap: 2rem;
 }
 
-.nav-links a, .user-info-trigger {
+.nav-links a,
+.user-info-trigger {
     display: flex;
     align-items: center;
     gap: 0.5rem;

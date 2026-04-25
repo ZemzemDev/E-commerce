@@ -16,7 +16,7 @@
 .mock-payment-modal {
     background: linear-gradient(145deg, #1e1e1e 0%, #121212 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
@@ -105,7 +105,7 @@
     font-size: 1.25rem;
     letter-spacing: 2px;
     margin-bottom: 16px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card-details-display {
@@ -242,21 +242,46 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes popIn {
-    0% { transform: scale(0.5); opacity: 0; }
-    70% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

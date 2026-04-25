@@ -15,7 +15,7 @@
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    color: #e5e7eb;
+    color: #181818;
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -24,7 +24,7 @@
 
 .back-btn:hover {
     background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: #0b0b0b;
 }
 
 .header-actions {

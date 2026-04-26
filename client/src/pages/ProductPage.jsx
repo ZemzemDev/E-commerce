@@ -27,7 +27,7 @@ const ProductPage = () => {
 
                 // Fetch related products (same category, excluding current)
                 const { data: related } = await axios.get(`${API_URL}/products?category=${data.category}`);
-                setRelatedProducts(related.filter(p => p._id !== data._id).slice(0, 8));
+                setRelatedProducts(related.filter(p => p.id !== data.id).slice(0, 8));
             } catch (error) {
                 console.error('Error fetching product details:', error);
             } finally {
@@ -101,7 +101,7 @@ const ProductPage = () => {
                             <button
                                 className="add-to-cart-btn"
                                 style={{ background: '#333' }}
-                                onClick={() => navigate(`/admin/product/${product._id}/edit`)}
+                                onClick={() => navigate(`/admin/product/${product.id}/edit`)}
                             >
                                 Edit Product
                             </button>
@@ -115,8 +115,8 @@ const ProductPage = () => {
                     <h2 className="section-title-alt">Related <span>Products</span></h2>
                     <div className="product-grid">
                         {relatedProducts.map((p) => (
-                            <div key={p._id} className="premium-card product-card">
-                                <Link to={`/product/${p._id}`}>
+                            <div key={p.id} className="premium-card product-card">
+                                <Link to={`/product/${p.id}`}>
                                     <img src={p.image} alt={p.name} className="product-image" />
                                     <h3>{p.name}</h3>
                                 </Link>

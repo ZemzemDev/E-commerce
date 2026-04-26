@@ -1,24 +1,28 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const dns = require('dns');
+const sequelize = require('./config/db');
 const User = require('./models/User');
 
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 dotenv.config();
 
 const verifyAdmin = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        const user = await User.findOne({ email: 'admin@example.com' });
+        await sequelize.authenticate();
+        console.log('✅ Database connected.');
+        
+        const user = await User.findOne({ where: { email: 'admin@example.com' } });
+        
         if (user) {
-            console.log(`User: ${user.email}`);
-            console.log(`isAdmin: ${user.isAdmin}`);
+            console.log('-------------------------');
+            console.log(`User Name: ${user.name}`);
+            console.log(`User Email: ${user.email}`);
+            console.log(`Is Admin: ${user.isAdmin}`);
+            console.log('-------------------------');
         } else {
-            console.log('Admin user not found!');
+            console.log('❌ Admin user not found in Supabase!');
         }
         process.exit();
     } catch (error) {
-        console.error(error);
+        console.error('❌ Error:', error.message);
         process.exit(1);
     }
 };

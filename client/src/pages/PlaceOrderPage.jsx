@@ -68,7 +68,7 @@ const PlaceOrderPage = () => {
             }, config);
 
             clearCart();
-            navigate(`/order/${data._id || data.id}`);
+            navigate(`/order/${data.id || data.id}`);
         } catch (err) {
             const message = err.response?.data?.message || err.message || 'Failed to place order. Please try again.';
             setError(message);
@@ -115,7 +115,7 @@ const PlaceOrderPage = () => {
                                     <li key={index} className="order-item">
                                         <img src={item.image} alt={item.name} className="order-item-img" />
                                         <div className="order-item-info">
-                                            <Link to={`/product/${item.product || item._id}`}>{item.name}</Link>
+                                            <Link to={`/product/${item.product || item.id}`}>{item.name}</Link>
                                             <p>{item.qty} x {getCurrencySymbol()}{item.price} = <strong>{getCurrencySymbol()}{(Number(item.qty || 0) * Number(item.price || 0)).toFixed(2)}</strong></p>
                                         </div>
                                     </li>

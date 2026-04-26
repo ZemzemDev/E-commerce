@@ -22,7 +22,6 @@ exports.getProducts = async (req, res) => {
         // Map id to _id for frontend compatibility and parse price as number
         const mappedProducts = products.map(p => {
             const json = p.toJSON();
-            json._id = json.id;
             json.price = parseFloat(json.price);
             return json;
         });
@@ -40,7 +39,6 @@ exports.getProductById = async (req, res) => {
         const product = await Product.findByPk(req.params.id);
         if (product) {
             const json = product.toJSON();
-            json._id = json.id;
             json.price = parseFloat(json.price);
             res.json(json);
         } else {

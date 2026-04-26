@@ -99,9 +99,9 @@ const Header = () => {
                             <div className="live-search-results">
                                 {liveResults.map((product) => (
                                     <div
-                                        key={product._id}
+                                        key={product.id}
                                         className="result-item"
-                                        onClick={() => resultClickHandler(product._id)}
+                                        onClick={() => resultClickHandler(product.id)}
                                     >
                                         <img src={product.image} alt={product.name} className="result-img" />
                                         <div className="result-info">

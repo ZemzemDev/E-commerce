@@ -24,16 +24,16 @@ exports.createOrder = async (req, res) => {
                     qty: item.qty,
                     image: item.image,
                     price: item.price,
-                    ProductId: item.product || item._id // Support both conventions
+                orderItems: orderItems.map(item => ({
+                    name: item.name,
+                    qty: item.qty,
+                    image: item.image,
+                    price: item.price,
+                    ProductId: item.product || item.id
                 }))
             }, {
-                include: [{ model: OrderItem, as: 'orderItems' }]
-            });
 
-            // Map id to _id for frontend redirect logic
-            const orderJson = order.toJSON();
-            orderJson._id = orderJson.id;
-            res.status(201).json(orderJson);
+            res.status(201).json(order);
         } catch (error) {
             console.error('❌ SEVERE Order Creation Error:', error);
             res.status(500).json({ 
@@ -56,9 +56,7 @@ exports.getOrderById = async (req, res) => {
         });
 
         if (order) {
-            // Map back to _id if frontend expects it
             const orderJson = order.toJSON();
-            orderJson._id = orderJson.id;
             
             // Map ProductId to product for consistent naming in frontend
             if (orderJson.orderItems) {
@@ -117,7 +115,6 @@ exports.getMyOrders = async (req, res) => {
         // Map id to _id and parse prices for frontend compatibility
         const mappedOrders = orders.map(o => {
             const json = o.toJSON();
-            json._id = json.id;
             json.totalPrice = parseFloat(json.totalPrice);
             if (json.orderItems) {
                 json.orderItems = json.orderItems.map(item => ({

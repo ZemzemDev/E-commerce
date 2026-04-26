@@ -22,13 +22,13 @@ const CartPage = () => {
                 <div className="cart-container">
                     <div className="cart-items">
                         {cart.map((item) => (
-                            <div key={item._id} className="premium-card cart-item">
+                            <div key={item.id} className="premium-card cart-item">
                                 <img src={item.image} alt={item.name} />
                                 <div className="item-details">
                                     <h3>{item.name}</h3>
                                     <p className="item-price">{getCurrencySymbol()}{item.price.toFixed(2)} x {item.qty}</p>
                                 </div>
-                                <button onClick={() => removeFromCart(item._id)} className="remove-btn">
+                                <button onClick={() => removeFromCart(item.id)} className="remove-btn">
                                     <Trash2 size={20} />
                                 </button>
                             </div>

@@ -320,10 +320,10 @@ const ProfilePage = () => {
                         ) : (
                             <div className="orders-list">
                                 {orders.map((order) => (
-                                    <div key={order._id} className="order-item-card">
+                                    <div key={order.id} className="order-item-card">
                                         <div className="order-header">
                                             <div className="order-id">
-                                                <span>ID: {order._id.substring(0, 10)}...</span>
+                                                <span>ID: {order.id.substring(0, 10)}...</span>
                                                 <span className="order-date">{new Date(order.createdAt).toLocaleDateString()}</span>
                                             </div>
                                             <div className={`order-status ${order.isPaid ? 'paid' : 'unpaid'}`}>
@@ -337,7 +337,7 @@ const ProfilePage = () => {
                                             </div>
                                             <button
                                                 className="view-order-btn"
-                                                onClick={() => navigate(`/order/${order._id}`)}
+                                                onClick={() => navigate(`/order/${order.id}`)}
                                             >
                                                 Details <ChevronRight size={16} />
                                             </button>

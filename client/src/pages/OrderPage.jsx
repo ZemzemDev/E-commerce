@@ -114,7 +114,7 @@ const OrderPage = () => {
 
     return (
         <div className="container order-page">
-            <h1 className="page-title">Order <span>#{order._id?.substring(0, 8) || order.id?.substring(0, 8)}</span></h1>
+            <h1 className="page-title">Order <span>#{order.id?.substring(0, 8) || order.id?.substring(0, 8)}</span></h1>
             <div className="checkout-grid">
                 <div className="checkout-details">
                     <div className="premium-card mb-4">

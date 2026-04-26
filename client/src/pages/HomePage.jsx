@@ -110,7 +110,7 @@ const HomePage = () => {
                 <h2 className="section-title">
                     {keyword ? `Search results for "${keyword}"` : category ? `${category} Collection` : 'Featured Products'}
                 </h2>
-                {products.length > 0 && products[0]._id.toString().startsWith('mock') && (
+                {products.length > 0 && products[0].id.toString().startsWith('mock') && (
                     <div className="demo-notice">
                         <p>⚠️ <strong>Offline Mode:</strong> Could not connect to the database. Showing premium fallback products.</p>
                     </div>
@@ -137,11 +137,11 @@ const HomePage = () => {
                 ) : (
                     <div className="product-grid">
                         {products.length > 0 ? products.map((product, index) => (
-                            <div key={product._id} className="premium-card product-card">
+                            <div key={product.id} className="premium-card product-card">
                                 {index < 3 && !keyword && !category && (
                                     <span className="new-badge">New Arrival</span>
                                 )}
-                                <Link to={`/product/${product._id}`}>
+                                <Link to={`/product/${product.id}`}>
                                     <img src={product.image} alt={product.name} className="product-image" />
                                     <span className="product-brand">{product.brand}</span>
                                     <h3>{product.name}</h3>

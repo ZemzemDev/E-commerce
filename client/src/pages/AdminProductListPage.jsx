@@ -83,7 +83,7 @@ const AdminProductListPage = () => {
 
     const handleSelectAll = (e) => {
         if (e.target.checked) {
-            const allIds = new Set(filteredProducts.map(p => p._id));
+            const allIds = new Set(filteredProducts.map(p => p.id));
             setSelectedIds(allIds);
         } else {
             setSelectedIds(new Set());
@@ -114,7 +114,7 @@ const AdminProductListPage = () => {
             await axios.put(`${API_URL}/products/${id}`, updateData, config);
             
             // Optimistic sync
-            setProducts(prev => prev.map(p => p._id === id ? { ...p, [field]: value } : p));
+            setProducts(prev => prev.map(p => p.id === id ? { ...p, [field]: value } : p));
             setEditingCell(null);
         } catch (error) {
             setMessage({ type: 'error', text: 'Update failed. Reverting...' });
@@ -207,12 +207,12 @@ const AdminProductListPage = () => {
                                     const stockClass = isOutStock ? 'out-stock' : (isLowStock ? 'low-stock' : 'in-stock');
                                     
                                     return (
-                                        <tr key={product._id} className={selectedIds.has(product._id) ? 'selected-row' : ''}>
+                                        <tr key={product.id} className={selectedIds.has(product.id) ? 'selected-row' : ''}>
                                             <td>
                                                 <input
                                                     type="checkbox"
-                                                    checked={selectedIds.has(product._id)}
-                                                    onChange={(e) => handleSelectOne(e, product._id)}
+                                                    checked={selectedIds.has(product.id)}
+                                                    onChange={(e) => handleSelectOne(e, product.id)}
                                                 />
                                             </td>
                                             <td>
@@ -243,21 +243,21 @@ const AdminProductListPage = () => {
                                                         )}
                                                     </div>
                                                     <div className="stock-actions">
-                                                        <button onClick={() => handleStockClick(product._id, product.countInStock, 1)} className="stock-btn plus">+</button>
-                                                        <button onClick={() => handleStockClick(product._id, product.countInStock, -1)} className="stock-btn minus">-</button>
+                                                        <button onClick={() => handleStockClick(product.id, product.countInStock, 1)} className="stock-btn plus">+</button>
+                                                        <button onClick={() => handleStockClick(product.id, product.countInStock, -1)} className="stock-btn minus">-</button>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="price-cell">
-                                                {editingCell?.id === product._id && editingCell?.field === 'price' ? (
+                                                {editingCell?.id === product.id && editingCell?.field === 'price' ? (
                                                     <input 
                                                         type="number"
                                                         className="inline-edit-input"
                                                         value={editValue}
                                                         onChange={(e) => setEditValue(e.target.value)}
-                                                        onBlur={() => handleQuickUpdate(product._id, 'price', Number(editValue))}
+                                                        onBlur={() => handleQuickUpdate(product.id, 'price', Number(editValue))}
                                                         onKeyDown={(e) => {
-                                                            if (e.key === 'Enter') handleQuickUpdate(product._id, 'price', Number(editValue));
+                                                            if (e.key === 'Enter') handleQuickUpdate(product.id, 'price', Number(editValue));
                                                             if (e.key === 'Escape') setEditingCell(null);
                                                         }}
                                                         autoFocus
@@ -266,7 +266,7 @@ const AdminProductListPage = () => {
                                                     <span 
                                                         className="editable-price"
                                                         onClick={() => {
-                                                            setEditingCell({ id: product._id, field: 'price' });
+                                                            setEditingCell({ id: product.id, field: 'price' });
                                                             setEditValue(product.price);
                                                         }}
                                                         title="Click to edit price"
@@ -278,14 +278,14 @@ const AdminProductListPage = () => {
                                             <td className="actions-cell">
                                                 <button
                                                     className="action-btn edit"
-                                                    onClick={() => navigate(`/admin/product/${product._id}/edit`)}
+                                                    onClick={() => navigate(`/admin/product/${product.id}/edit`)}
                                                     title="Edit Product"
                                                 >
                                                     <Edit size={16} />
                                                 </button>
                                                 <button
                                                     className="action-btn delete"
-                                                    onClick={() => deleteHandler(product._id)}
+                                                    onClick={() => deleteHandler(product.id)}
                                                     title="Delete Product"
                                                 >
                                                     <Trash2 size={16} />

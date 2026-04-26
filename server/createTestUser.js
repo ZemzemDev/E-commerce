@@ -1,20 +1,19 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const dns = require('dns');
+const sequelize = require('./config/db');
 const User = require('./models/User');
 
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 dotenv.config();
 
 const createTestUser = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        await sequelize.authenticate();
+        console.log('✅ Database connected.');
 
         const email = 'testuser@example.com';
-        const userExists = await User.findOne({ email });
+        const userExists = await User.findOne({ where: { email } });
 
         if (userExists) {
-            await User.deleteOne({ email });
+            await userExists.destroy();
             console.log('Removed existing test user');
         }
 
@@ -30,7 +29,7 @@ const createTestUser = async () => {
 
         process.exit();
     } catch (error) {
-        console.error('❌ Error creating test user:', error);
+        console.error('❌ Error creating test user:', error.message);
         process.exit(1);
     }
 };

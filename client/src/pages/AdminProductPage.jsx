@@ -36,7 +36,7 @@ const AdminProductPage = () => {
 
         setIsDetectingImage(true);
         setMessage({ type: 'info', text: 'Searching Unsplash Live... 🛰️' });
-        
+
         try {
             const data = await autoDetectProductData(name, user.token);
             if (data.images && data.images.length > 0) {
@@ -159,12 +159,12 @@ const AdminProductPage = () => {
                         <h3><Package size={18} /> Basic Information</h3>
                         <div className="form-group">
                             <label>Product Name</label>
-                            <input 
-                                type="text" 
-                                value={name} 
-                                onChange={(e) => setName(e.target.value)} 
-                                required 
-                                placeholder="e.g. iPhone 15 Pro Max" 
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                placeholder="e.g. iPhone 15 Pro Max"
                             />
                         </div>
                         <div className="form-group">
@@ -202,15 +202,7 @@ const AdminProductPage = () => {
                             <div className="label-with-action">
                                 <label>Image URL</label>
                                 <div className="label-controls">
-                                    <button 
-                                        type="button" 
-                                        className={`magic-image-btn ${isDetectingImage ? 'spinning' : ''}`}
-                                        onClick={handleMagicImage}
-                                        disabled={isDetectingImage || !name}
-                                        title="Magic Scraper: Detect image only"
-                                    >
-                                        <Wand2 size={14} /> <span>Magic Image</span>
-                                    </button>
+
                                     <button type="button" className="library-trigger" onClick={() => setShowLibrary(!showLibrary)}>
                                         {showLibrary ? 'Close Library' : 'Choose from Library'}
                                     </button>
@@ -289,10 +281,10 @@ const AdminProductPage = () => {
                         <div className="palette-grid">
                             {paletteImages.map((img, idx) => (
                                 <div key={idx} className="palette-item" onClick={() => selectPaletteImage(img)}>
-                                    <img 
-                                        src={img} 
-                                        alt={`Option ${idx + 1}`} 
-                                        loading="lazy" 
+                                    <img
+                                        src={img}
+                                        alt={`Option ${idx + 1}`}
+                                        loading="lazy"
                                         onError={(e) => e.target.closest('.palette-item').style.display = 'none'}
                                     />
                                     <div className="palette-item-overlay">
